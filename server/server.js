@@ -7,7 +7,8 @@ const cors = require('cors')
 const path = require("path");
 const port = process.env.PORT || 5000;
 
-// const usersRoute = require("./routes/usersRoute");
+const tourRoutes= require("./routes/tour")
+const usersRoute = require("./routes/auth");
 // const reviewsRoute = require("./routes/reviewsRoute");
 
 
@@ -18,7 +19,8 @@ app.get('/', (req, res) => {
   res.send('Server is Up!');
 });
 
-// app.use("/api/users", usersRoute);
+app.use("/api", usersRoute);
+app.use('/api/tour', tourRoutes);
 // app.use("/api/reviews", reviewsRoute);
 
 app.listen(port, () => {
